@@ -9,4 +9,3 @@ password_encrypted = auth.encrypt(username)
 
 print(username_encrypted)
 
-#bienne trial
