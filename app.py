@@ -2,7 +2,15 @@ import authentication
 import menu
 import orders
 
-# Dictionary of users
+"""
+The app.py utilizes the other modules for different functions.
+The features are seperated to different modules so that the code is easier to manage
+and so that it can be more modular.
+
+app.py is also the main code. Therefore this is the python file we will run to start our program.
+"""
+
+# Dictionary of users and their passwords
 users = {'''username:password'''}
 
 def main():
