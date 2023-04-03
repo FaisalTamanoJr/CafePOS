@@ -9,7 +9,7 @@ def display_menu(menu):
     table = [["Item Code", "Item Name", "Price", "Stocks"]]
 
     for items in menu:
-        temp_list = [items, menu[items]["Name"], str(menu[items]["Price"]) + " PHP", menu[items]["Stocks"]]
+        temp_list = [items, menu[items]["Name"], "{0:.2f}".format(menu[items]["Price"]) + " PHP", menu[items]["Stocks"]]
         table.append(temp_list)
 
     print(tabulate(table, headers="firstrow", tablefmt="fancy_grid"))
