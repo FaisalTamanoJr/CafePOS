@@ -6,7 +6,7 @@ import orders
     note: more info in the diagrams at the docs
 """
 def display_menu(menu):
-    table = [["Item Code", "Item Name", "Price", "Stocks Available"]]
+    table = [["Item Code", "Item Name", "Price", "Stocks"]]
 
     for items in menu:
         temp_list = [items, menu[items]["Name"], str(menu[items]["Price"]) + " PHP", menu[items]["Stocks"]]

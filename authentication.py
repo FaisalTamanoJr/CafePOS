@@ -5,9 +5,16 @@
     4. Else it loops back and asks the user to re-enter the username and password.
     note: more info in the diagrams at the docs
 """
-def login(username, password):
-    pass
-
+def login(database, username, password):
+    if username not in database:
+        print("Invalid Username\n")
+        return False
+    else:
+        if password == cryptography(database[username], "decrypt"):
+            return True
+        else:
+            print("Invalid Password\n")
+            return False
 
 """
     1. The cryptography function is used for encrypting and decrypting text.
