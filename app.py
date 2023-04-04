@@ -2,6 +2,7 @@ import authentication as auth
 import menu
 import orders
 import maskpass
+import sys
 
 """
 The app.py utilizes the other modules for different functions.
@@ -83,7 +84,7 @@ def main():
             elif choice == 1:
                 menu.display_popular_drinks()
             else:
-                allowAccess = False
+                sys.exit()
 
         if allowAccess == False:
             break
