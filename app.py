@@ -86,9 +86,6 @@ def main():
             else:
                 sys.exit()
 
-        if allowAccess == False:
-            break
-
 
 if __name__ == "__main__":
     main()
