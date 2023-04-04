@@ -45,6 +45,8 @@ wake_menu = {
         'NC03': {"Name":"Thai Milktea", "Price":3.75, "Stocks":20},
             }
 
+welcomeMessage = "Welcome to Wake Cup POS system! Please enter your customer login credentials."
+
 def main():
 
     # Do not terminate the program unless requested by the user
@@ -57,28 +59,33 @@ def main():
            users_encrypted[user] = auth.cryptography(users[user], "encrypt")
 
         # Login system
+        print(welcomeMessage)
         allowAccess = False
         while allowAccess == False:
             username = input("Username: ")
             password = maskpass.askpass(mask="*")
             allowAccess = auth.login(users_encrypted, username, password)
 
-        # Display the menu and the other options
-        menu.display_menu(wake_menu)
+        while allowAccess == True:
+            # Display the menu and the other options
+            menu.display_menu(wake_menu)
 
-        # Ask the users on what to do
-        choices = [0,1,2]
-        print("[0] Order an item, [1] Rank drinks, [2] Exit the program")
-        choice = 3
-        while choice not in choices:
-            choice = input(f"choose an option:\n{choices}\n")
-            if choice.isdecimal() == True:
-                choice = int(choice)
-        if choice == 0:
-           orders.action_on_orders()
-        elif choice == 1:
-            menu.display_popular_drinks()
-        else:
+            # Ask the users on what to do
+            choices = [0,1,2]
+            print("[0] Order an item, [1] Rank drinks, [2] Exit the program")
+            choice = 3
+            while choice not in choices:
+                choice = input(f"choose an option:\n{choices}\n")
+                if choice.isdecimal() == True:
+                    choice = int(choice)
+            if choice == 0:
+               orders.action_on_orders()
+            elif choice == 1:
+                menu.display_popular_drinks()
+            else:
+                allowAccess = False
+
+        if allowAccess == False:
             break
 
 

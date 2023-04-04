@@ -19,4 +19,5 @@ def display_menu(menu):
     note: more info in the diagrams at the docs
 """
 def display_popular_drinks():
+    print("popular drinks action")
     pass
