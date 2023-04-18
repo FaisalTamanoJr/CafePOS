@@ -37,7 +37,13 @@ def take_an_order(menu):
             print("Invalid item code. Please try again.")
         else:
             item = menu[item_code]
-            quantity = int(input(f"Enter quantity for '{item['Name']}': "))
+            quantity = None
+            while not quantity:
+                try:
+                    quantity = int(input(f"Enter quantity for '{item['Name']}': "))
+                except ValueError:
+                    print("Invalid Input")
+                    quantity = None
             if quantity > item['Stocks']:
                 print(f"Insufficient stocks for '{item['Name']}'")
             else:
