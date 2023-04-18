@@ -4,7 +4,10 @@ import menu
 
 def action_on_orders():
     print("action on orders function")
+<<<<<<< HEAD
     pass
+=======
+>>>>>>> d9cbf3004c08de3bea1070279bfd07a072c13bf7
     order = {}  # initialize an empty order dictionary
     menu.display_menu(menu.wake_menu)
     while True:
@@ -26,7 +29,10 @@ def action_on_orders():
 
 
     # check the diagrams in the docs for an explanation on how this function works.
+<<<<<<< HEAD
 def receipt():
+=======
+>>>>>>> d9cbf3004c08de3bea1070279bfd07a072c13bf7
 
 
 def receipt(order):
