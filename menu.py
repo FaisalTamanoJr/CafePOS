@@ -7,13 +7,20 @@ from tabulate import tabulate
 
 
 def display_menu(menu):
-    table = [["Item Code", "Item Name", "Price", "Stocks"]]
+    available = [["Item Code", "Item Name", "Price", "Stocks"]]
+    unavailable = [["Item Code", "Item Name", "Price", "Stocks"]]
 
     for items in menu:
         temp_list = [items, menu[items]["Name"], "{0:.2f}".format(menu[items]["Price"]) + " PHP", menu[items]["Stocks"]]
-        table.append(temp_list)
+        if menu[items]["Stocks"] > 0:
+            available.append(temp_list)
+        else:
+            unavailable.append(temp_list)
 
-    print(tabulate(table, headers="firstrow", tablefmt="fancy_grid"))
+    print("Available Items")
+    print(tabulate(available, headers="firstrow", tablefmt="fancy_grid"))
+    print("Unavailable Items")
+    print(tabulate(unavailable, headers="firstrow", tablefmt="fancy_grid"))
 
 
 """
@@ -26,10 +33,9 @@ def display_popular_drinks(menu):
     # sort the items based on the stocks
     sorted_menu = sorted(menu.items(), key=lambda x: x[1]['Stocks'])
 
-    table = [["Popularity Rank", "Item Code", "Item Name", "Price", "Stocks"]]
+    table = [["Popularity Rank", "Item Name"]]
     for i, j in zip(sorted_menu, range(1, len(sorted_menu))):
-        items = i[0]
         items_info = i[1]
-        temp_list = [j, items, items_info["Name"], "{0:.2f}".format(items_info["Price"]) + " PHP", items_info["Stocks"]]
+        temp_list = [j, items_info["Name"]]
         table.append(temp_list)
     print(tabulate(table, headers="firstrow", tablefmt="fancy_grid"))

@@ -61,10 +61,11 @@ def main():
             users_encrypted[user] = auth.cryptography(users[user], "encrypt")
 
         # Login system
-        print(welcomeMessage)
         allowAccess = False
+        username = None
         while not allowAccess:
             system('clear')
+            print(welcomeMessage)
             username = input("Username: ")
             password = maskpass.askpass(mask="*")
             allowAccess = auth.login(users_encrypted, username, password)
@@ -74,34 +75,37 @@ def main():
             menu.display_menu(wake_menu)
 
             # Ask the users on what to do
-            choices = [0, 1, 2]
-            print("[0] Order an item, [1] Rank drinks, [2] Exit the program")
-            choice = 3
+            choices = [0, 1, 2, 3]
+            print("[0] Order an item, [1] Most Popular Drinks Ranking, [2] Log Out, [3] Exit the Program")
+            choice = None
             while choice not in choices:
                 choice = input(f"choose an option:\n{choices}\n")
                 if choice.isdecimal():
                     choice = int(choice)
             if choice == 0:
                 system('clear')
-                orders.action_on_orders()
+                take_order = orders.action_on_orders(username, wake_menu)
+                if take_order == 1:
+                    allowAccess = False
+                else:
+                    pass
             elif choice == 1:
                 menu.display_popular_drinks(wake_menu)
 
                 # Ask the users on what to do
-                choices = [0, 1, 2]
-                print("[0] Order an item, [1] Go back to Original Menu, [2] Exit the program")
-                choice = 3
+                choices = [0, 1]
+                print("[0] Go back to Original Menu, [1] Exit the program")
+                choice = None
                 while choice not in choices:
                     choice = input(f"choose an option:\n{choices}\n")
                     if choice.isdecimal():
                         choice = int(choice)
                 if choice == 0:
-                    system('clear')
-                    orders.action_on_orders(wake_menu)
-                elif choice == 1:
                     pass
                 else:
                     sys.exit()
+            elif choice == 2:
+                allowAccess = False
             else:
                 sys.exit()
 
