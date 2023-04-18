@@ -1,26 +1,48 @@
+from time import sleep
 """
     1. The login function asks the user for the username and password.
-    2. The login function accepts an username and password argument.
+    2. The login function accepts a username and password argument.
     3. It verifies if the username and password are valid and allows the user to access the program.
     4. Else it loops back and asks the user to re-enter the username and password.
     note: more info in the diagrams at the docs
 """
+
+
 def login(database, username, password):
     if username not in database:
-        print("Invalid Username\n")
+        print("\nInvalid Username\n")
+        print("Returning to login", end=" ")
+        sleep(0.5)
+        print(".", end=" ")
+        sleep(0.5)
+        print(".", end=" ")
+        sleep(0.5)
+        print(".", end=" ")
+        sleep(0.5)
         return False
     else:
         if password == cryptography(database[username], "decrypt"):
             return True
         else:
-            print("Invalid Password\n")
+            print("\nInvalid Password\n")
+            print("Returning to login", end=" ")
+            sleep(0.5)
+            print(".", end=" ")
+            sleep(0.5)
+            print(".", end=" ")
+            sleep(0.5)
+            print(".", end=" ")
+            sleep(0.5)
             return False
+
 
 """
     1. The cryptography function is used for encrypting and decrypting text.
     2. The textInput is a parameter that is for accepting plaintext or ciphertext.
     3. The mode parameter determines whether to encrypt the text or decrypt it.
 """
+
+
 def cryptography(textInput, mode="encrypt"):
     key = "Prologi"
     textOutput = ""
@@ -40,7 +62,7 @@ def cryptography(textInput, mode="encrypt"):
             cipherValue = 0
             keyValue = ord(k)
 
-            if (mode == "encrypt"):
+            if mode == "encrypt":
                 if character.isupper():
                     if k.isupper():
                         cipherValue = ((characterValue - ord('A')) + (keyValue - ord('A'))) % 26 + ord('A')
