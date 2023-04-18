@@ -52,7 +52,7 @@ def take_an_order(menu):
                 print(f"Added '{item['Name']}' x {quantity} to order.")
 
                 choices = [0, 1, 2]
-                print("[0] Add More Items, [1] Stop Ordering, [2] Cancel and Remove All Orders")
+                print("[0] Add More Items, [1] Print Receipt, [2] Cancel and Remove All Orders")
                 choice = None
                 while choice not in choices:
                     choice = input(f"choose an option:\n{choices}\n")
