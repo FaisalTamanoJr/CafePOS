@@ -10,29 +10,17 @@ from time import sleep
 
 def login(database, username, password):
     if username not in database:
-        print("\nInvalid Username\n")
-        print("Returning to login", end=" ")
-        sleep(0.5)
-        print(".", end=" ")
-        sleep(0.5)
-        print(".", end=" ")
-        sleep(0.5)
-        print(".", end=" ")
-        sleep(0.5)
+        print("\nInvalid Username")
+        print("Returning to login...")
+        sleep(2)
         return False
     else:
         if password == cryptography(database[username], "decrypt"):
             return True
         else:
             print("\nInvalid Password\n")
-            print("Returning to login", end=" ")
-            sleep(0.5)
-            print(".", end=" ")
-            sleep(0.5)
-            print(".", end=" ")
-            sleep(0.5)
-            print(".", end=" ")
-            sleep(0.5)
+            print("Returning to login...")
+            sleep(2)
             return False
 
 

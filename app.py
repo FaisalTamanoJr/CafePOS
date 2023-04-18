@@ -27,10 +27,10 @@ wake_menu = {
     'E03': {"Name": "Cappuccino", "Price": 3.50, "Stocks": 20},
     'E04': {"Name": "Americano", "Price": 4.50, "Stocks": 20},
     'E05': {"Name": "Espresso", "Price": 4.25, "Stocks": 20},
-    'E06': {"Name": "Macchiato", "Price": 4.00, "Stocks": 19},
-    'E07': {"Name": "Vanilla", "Price": 3.75, "Stocks": 18},
+    'E06': {"Name": "Macchiato", "Price": 4.00, "Stocks": 20},
+    'E07': {"Name": "Vanilla", "Price": 3.75, "Stocks": 20},
 
-    'IB01': {"Name": "Caramel", "Price": 4.25, "Stocks": 17},
+    'IB01': {"Name": "Caramel", "Price": 4.25, "Stocks": 20},
     'IB02': {"Name": "Coffee Latte", "Price": 3.50, "Stocks": 20},
     'IB03': {"Name": "Frappe", "Price": 3.75, "Stocks": 20},
     'IB04': {"Name": "Mocha", "Price": 4.00, "Stocks": 20},
